@@ -24,22 +24,25 @@ void swap(int&i , int&j){
     i = j;
     j = temp;
 }
-int main(){
-    std::array<int,13> a =  { 3,3,5,8,9,8,9,10,17,10,11,17,10};
-    //std::vector<std::pair<int,int>> element;
-    
+template< class T >
+void SelectionSort(T& a){
     for(auto i = 0; i < a.size(); i++){
         int min_index = i;
         for(auto j = i+1; j < a.size();j++){
             if(a.at(min_index) > a.at(j)){
                 min_index = j;
-            }
-
+            }   
         }
         if(a.at(i) > a.at(min_index)){
             swap(a.at(i),a.at(min_index));
         }
     }
+}
+int main(){
+    std::array<int,13> a =  { 3,3,5,8,9,8,9,10,17,10,11,17,10};
+    //std::vector<std::pair<int,int>> element;
+    
+    SelectionSort(a);
 
     int freq = 1;
 
@@ -54,6 +57,7 @@ int main(){
             freq++;
         }
     }
+
     
     // for(auto i = 0;i < a.size()-1; ++i){
     //     if(a.at(i) != a.at(i+1)){

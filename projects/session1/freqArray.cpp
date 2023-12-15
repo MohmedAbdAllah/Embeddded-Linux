@@ -26,7 +26,7 @@ void swap(int&i , int&j){
 }
 int main(){
     std::array<int,13> a =  { 3,3,5,8,9,8,9,10,17,10,11,17,10};
-    std::vector<std::pair<int,int>> element;
+    //std::vector<std::pair<int,int>> element;
     
     for(auto i = 0; i < a.size(); i++){
         int min_index = i;
@@ -43,22 +43,34 @@ int main(){
 
     int freq = 1;
 
-    for(auto i = 0;i < a.size()-1; ++i){
+   for(auto i = 0;i < a.size()-1; ++i){
         if(a.at(i) != a.at(i+1)){
-            element.emplace_back(a.at(i),freq);
+            std::cout<< a.at(i) << " : " << freq << "\n";
             freq =1;
         }else if((i+2) == a.size()){
             freq++;
-            element.emplace_back(a.at(i),freq);
+            std::cout<< a.at(i) << " : " << freq << "\n";
         }else{
             freq++;
         }
     }
+    
+    // for(auto i = 0;i < a.size()-1; ++i){
+    //     if(a.at(i) != a.at(i+1)){
+    //         element.emplace_back(a.at(i),freq);
+    //         freq =1;
+    //     }else if((i+2) == a.size()){
+    //         freq++;
+    //         element.emplace_back(a.at(i),freq);
+    //     }else{
+    //         freq++;
+    //     }
+    // }
 
 
 
-    for(auto it = element.begin(); it != element.end(); ++it){
-       std::cout << it->first << ":" << it->second <<"\n";
-    }
+    // for(auto it = element.begin(); it != element.end(); ++it){
+    //    std::cout << it->first << ":" << it->second <<"\n";
+    // }
     return 0;
 }
